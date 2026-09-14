@@ -1,4 +1,4 @@
-// js/admin-the working repository.js
+// js/admin-remote.js
 // BYOK loader for the working repository-hosted management/admin pages.
 //
 // 12 Sep 2026: every admin/management page (Library Manager, Kosha Manager,
@@ -44,7 +44,7 @@
   'use strict';
 
   window.DGE_VERSIONS = window.DGE_VERSIONS || {};
-  window.DGE_VERSIONS['admin-the working repository.js'] = 'v1.0 (the working repository BYOK loader)';
+  window.DGE_VERSIONS['admin-remote.js'] = 'v1.0 (the working repository BYOK loader)';
 
   var BB_OWNER = 'Tribhuvanachar';
   var BB_REPO = 'the working repository';

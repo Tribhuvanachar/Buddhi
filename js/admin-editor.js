@@ -108,7 +108,7 @@ function dgeRevealAdminTools() {
   // this list along with those pages themselves — they moved to the private
   // the working repository repo and are no longer named anywhere in this one.
   // adminBrahmaBuddhiItem is the single, generically-labelled replacement:
-  // it only opens the PAT prompt (js/admin-the working repository.js), which fetches
+  // it only opens the PAT prompt (js/admin-remote.js), which fetches
   // the real (page-naming) menu from the working repository itself once unlocked.
   ['adminFilesItem', 'adminConfigItem', 'adminBrahmaBuddhiItem'].forEach(id => {
     const el = document.getElementById(id);

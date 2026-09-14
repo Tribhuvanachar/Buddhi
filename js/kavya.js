@@ -16,7 +16,7 @@
   // WordNet already do. config.js sets window.KAVYA_DATA_BASE from
   // appConfig for the reader; this page does not load config.js, so the
   // same URL is the default here. Set it to "data" to read a local build.
-  var CDN = "search_index";
+  var CDN = "../data";   // this repo; kavya/index.html sits one level down
   var DATA_BASE = window.KAVYA_DATA_BASE || CDN;
   var INDEX_URL = DATA_BASE + "/kavya_alankara/_index.json";
   var PREF_KEY = "dge.kavya.v2";
