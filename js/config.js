@@ -72,7 +72,9 @@ const appConfig = {
   // published site from 966 MB to 1,013 MB against a 1 GB Pages ceiling, so
   // the index moved to the "search-dist" branch and the site came back to
   // about 685 MB. window.DGE_SEARCH_INDEX was already the override the search
-  // client looks for. search_index/backlinks stays on main -- it is 0.1 MB.
+  // client looks for. backlinks/ stays on main -- it is 0.1 MB. (Renamed from
+  // search_index/ on 14 Sep 2026: the name promised the 330 MB index and
+  // delivered a backlink graph, which cost a round of confusion.)
   // NOTE: this is pinned to a commit, not to @search-dist, so jsDelivr cannot
   // serve a half-written index -- which means reindex.yml publishing a new one
   // changes nothing for readers until this line is bumped to that commit. If a
