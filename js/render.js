@@ -846,7 +846,7 @@ function renderList() {
     // Source view (1 Sep 2026, DvaitaVedanta re-harvest): units imported
     // with sanitized source-site markup (core.js's sourceHtml — class=
     // "shloka" pratika banners, h3 layer headings, lang="HI" spans) get a
-    // 🕮 toggle showing the unit exactly as dvaitavedanta.in lays it out,
+    // 🕮 toggle showing the unit exactly as the source site lays it out,
     // styled by those same class hooks mapped onto DGE tokens (main.css's
     // .dge-srcview rules). The markup was sanitized at import (tags/class/
     // lang/id only) and ships in this repo's own data.json — the same
@@ -857,7 +857,7 @@ function renderList() {
       ? `<div class="dge-srcview" hidden>${shloka.sourceHtml}</div>` : '';
 
     // बन्नञ्जे-पाठः. Sumadhva Vijaya is read in two recensions: the one most
-    // of the tradition accepts (the primary text here, from dvaitavedanta.in)
+    // of the tradition accepts (the primary text here, from the source site)
     // and Bannanje Govindacharya's critical edition, which admits fewer
     // verses. Where his reading exists it is offered on the verse itself
     // rather than buried in a picker -- the lead's ask, 9 Sep 2026: "there

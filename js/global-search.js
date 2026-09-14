@@ -19,7 +19,7 @@
   // window.DGE_SEARCH_INDEX from appConfig; this constant is the same URL, so
   // a page that does not load config.js still finds it. Set the variable to
   // 'search_index' to read a local build instead.
-  var CDN_INDEX = 'https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala@838335f8152654c37ee1c256c36b6ff6aab3927f';
+  var CDN_INDEX = 'search_index';
   var INDEX_BASE = window.DGE_SEARCH_INDEX || CDN_INDEX;
   var idxPromise = null, debounce = null;
   var currentScheme = 'auto'; // set by the scheme popup, read by queryOpts()
@@ -1421,7 +1421,7 @@
           ' A longer phrase narrows it.</div>'
         : '');
     box.innerHTML = note + hits.map(function (h) {
-      // h.unit is a raw source-importer id (unit_0370, DV_5752, a verse
+      // h.unit is a raw source-importer id (unit_0370, SM10:121, a verse
       // number...) -- real navigation state (kept in data-unit, below, for
       // go()/jumpShloka), but not something a reader needs to see, and the
       // project lead has separately asked that the app's own internal

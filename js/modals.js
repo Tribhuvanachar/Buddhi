@@ -51,7 +51,7 @@ function closeModal(id) {
 // it's visible; add a new {itemId, badgeId} pair whenever an admin-only
 // feature ships, and remove it once it's no longer worth flagging.
 // 12 Sep 2026: Audio Admin (the one entry ever listed here) moved to the
-// private BrahmaBuddhi repo along with the rest of the admin/*.html pages —
+// private the working repository repo along with the rest of the admin/*.html pages —
 // its badge markup went with it. Add a new {itemId, badgeId} pair here
 // whenever a LOCAL (this-repo) admin-only feature ships.
 const NEW_ADMIN_FEATURES = [];

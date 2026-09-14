@@ -1,18 +1,18 @@
-// js/admin-brahmabuddhi.js
-// BYOK loader for BrahmaBuddhi-hosted management/admin pages.
+// js/admin-the working repository.js
+// BYOK loader for the working repository-hosted management/admin pages.
 //
 // 12 Sep 2026: every admin/management page (Library Manager, Kosha Manager,
 // OCR Review/Studio, Repo & Workflows, Access Control, ...), the Convert
 // tool, and the DvaitaVedanta status page moved out of this repo entirely,
-// into the PRIVATE Tribhuvanachar/BrahmaBuddhi repo — bhumandala is public
+// into the PRIVATE Tribhuvanachar/the working repository repo — buddhi is public
 // (`git clone`-able by anyone) and must contain only served reader content.
 //
-// This file is the ONLY trace of that mechanism left in bhumandala. It does
+// This file is the ONLY trace of that mechanism left in buddhi. It does
 // not name a single moved page: the full list — names, paths, tier
-// requirements — lives solely in BrahmaBuddhi's own admin/config/admin-menu.json,
+// requirements — lives solely in the working repository's own admin/config/admin-menu.json,
 // fetched live over the GitHub Contents API using a visitor's OWN
-// BrahmaBuddhi-scoped personal access token (same BYOK trust model as
-// admin-editor.js's bhumandala-scoped one: stored in localStorage on this
+// the working repository-scoped personal access token (same BYOK trust model as
+// admin-editor.js's buddhi-scoped one: stored in localStorage on this
 // device only, sent to nothing but api.github.com, never bundled or
 // hardcoded here). Without a valid token, nobody — not even someone reading
 // this file's source — learns what pages exist behind it.
@@ -20,12 +20,12 @@
 // How a page actually renders: fetched HTML is rewritten so its own asset
 // references resolve correctly from their NEW location, then dropped into
 // an iframe via srcdoc.
-//   - A reference that resolves to bhumandala (this repo — most of an admin
+//   - A reference that resolves to buddhi (this repo — most of an admin
 //     page's own `../js/...`, `../images/...`, `../render.html`, ... — it
 //     used to sit one level under this repo's root, still does relative to
-//     BrahmaBuddhi's own admin/) becomes an absolute jsDelivr URL: public,
+//     the working repository's own admin/) becomes an absolute jsDelivr URL: public,
 //     unauthenticated, loaded natively by the browser.
-//   - A reference that resolves to BrahmaBuddhi itself (admin/, convert/,
+//   - A reference that resolves to the working repository itself (admin/, convert/,
 //     dvaitavedanta-status/ — content that moved WITH the page) has to be
 //     fetched here, with the Authorization header a private repo needs (a
 //     plain <script src>/<link href> can never carry one), then inlined.
@@ -44,26 +44,26 @@
   'use strict';
 
   window.DGE_VERSIONS = window.DGE_VERSIONS || {};
-  window.DGE_VERSIONS['admin-brahmabuddhi.js'] = 'v1.0 (BrahmaBuddhi BYOK loader)';
+  window.DGE_VERSIONS['admin-the working repository.js'] = 'v1.0 (the working repository BYOK loader)';
 
   var BB_OWNER = 'Tribhuvanachar';
-  var BB_REPO = 'BrahmaBuddhi';
+  var BB_REPO = 'the working repository';
   var BB_BRANCH = 'main';
   var BH_OWNER = 'Tribhuvanachar';
-  var BH_REPO = 'bhumandala';
+  var BH_REPO = 'buddhi';
   var BH_BRANCH = 'main';
   var GH_API = 'https://api.github.com';
   var TOKEN_KEY = 'brahmabuddhi_pat';
 
-  // Config/content that used to sit under bhumandala's admin/ and, when this
+  // Config/content that used to sit under buddhi's admin/ and, when this
   // moved, turned out to be read live by every visitor (the whole site
   // menu, SEO tags, landing-page words, legal text, ...) rather than by the
   // admin tools alone — see config/menu.json's own _readme. Those files
-  // stayed in bhumandala at its repo-root config/ and content/. An inlined
+  // stayed in buddhi at its repo-root config/ and content/. An inlined
   // admin page's OWN relative fetch (e.g. admin/library.html's
   // fetch("config/library-overrides.json")) still textually resolves to
   // "admin/config/library-overrides.json" — this table redirects exactly
-  // those known names back to bhumandala instead of BrahmaBuddhi.
+  // those known names back to buddhi instead of the working repository.
   var LEGACY_PUBLIC_CONFIG = ['chandas-features.json', 'config-overrides.json', 'contextual-actions.json',
     'home.json', 'intellisense.json', 'kosha-overrides.json', 'library-overrides.json',
     'menu.json', 'seo.json', 'site.config.json'];
@@ -111,9 +111,9 @@
 
   function legacyTranslate(path) {
     var m = /^admin\/config\/(.+)$/.exec(path);
-    if (m && LEGACY_PUBLIC_CONFIG.indexOf(m[1]) !== -1) return { repo: 'bhumandala', path: 'config/' + m[1] };
+    if (m && LEGACY_PUBLIC_CONFIG.indexOf(m[1]) !== -1) return { repo: 'buddhi', path: 'config/' + m[1] };
     var m2 = /^admin\/content\/(.+)$/.exec(path);
-    if (m2 && LEGACY_PUBLIC_CONTENT.indexOf(m2[1]) !== -1) return { repo: 'bhumandala', path: 'content/' + m2[1] };
+    if (m2 && LEGACY_PUBLIC_CONTENT.indexOf(m2[1]) !== -1) return { repo: 'buddhi', path: 'content/' + m2[1] };
     return null;
   }
 
@@ -121,7 +121,7 @@
     var legacy = legacyTranslate(path);
     if (legacy) return legacy;
     var isBrahma = BRAHMA_PREFIXES.some(function (p) { return path.indexOf(p) === 0; });
-    return { repo: isBrahma ? 'brahma' : 'bhumandala', path: path };
+    return { repo: isBrahma ? 'brahma' : 'buddhi', path: path };
   }
 
   function jsDelivrUrl(path) {
@@ -134,7 +134,7 @@
       headers: { 'Accept': 'application/vnd.github.v3.raw', 'Authorization': 'token ' + token() },
       cache: 'no-store'
     }).then(function (res) {
-      if (!res.ok) throw new Error(path + ': ' + res.status + ' ' + res.statusText + (res.status === 401 || res.status === 404 ? ' (check your BrahmaBuddhi token in the prompt)' : ''));
+      if (!res.ok) throw new Error(path + ': ' + res.status + ' ' + res.statusText + (res.status === 401 || res.status === 404 ? ' (check your the working repository token in the prompt)' : ''));
       return res;
     });
   }
@@ -156,7 +156,7 @@
     overlay.innerHTML =
       '<div style="background:#fff;color:#222;border-radius:12px;max-width:420px;width:100%;padding:20px;box-shadow:0 10px 40px rgba(0,0,0,.35);font-family:system-ui,sans-serif;">' +
         '<h3 style="margin:0 0 8px;font-size:16px;">Management Tools</h3>' +
-        '<p style="font-size:12px;color:#666;line-height:1.5;margin:0 0 12px;">Paste a GitHub personal access token scoped ONLY to the private BrahmaBuddhi repo (Contents: Read and write, fine-grained, with an expiry). It is stored in this browser only and sent to nothing but api.github.com.</p>' +
+        '<p style="font-size:12px;color:#666;line-height:1.5;margin:0 0 12px;">Paste a GitHub personal access token scoped ONLY to the private the working repository repo (Contents: Read and write, fine-grained, with an expiry). It is stored in this browser only and sent to nothing but api.github.com.</p>' +
         '<input id="bbTokenInput" type="password" placeholder="github_pat_…" style="width:100%;box-sizing:border-box;padding:8px 10px;border:1px solid #ccc;border-radius:8px;font-size:13px;margin-bottom:12px;">' +
         '<div style="display:flex;gap:8px;justify-content:flex-end;">' +
           '<button id="bbTokenCancel" style="padding:7px 14px;border-radius:8px;border:1px solid #ccc;background:transparent;cursor:pointer;">Cancel</button>' +
@@ -188,9 +188,9 @@
   var injectedRowIds = []; // so re-opening the gate replaces rather than duplicates
 
   // Every page this loader can open is keyed by its admin-menu.json `id` —
-  // a caller elsewhere in bhumandala (a deep-link button inside Library
+  // a caller elsewhere in buddhi (a deep-link button inside Library
   // Manager, Kosha Manager, etc.) passes that id, never a literal path, so
-  // no BrahmaBuddhi path string sits in bhumandala's public JS anywhere.
+  // no the working repository path string sits in buddhi's public JS anywhere.
   // Resolved lazily against the same fetch loadMenu() already does, cached
   // so a deep link opened before the popup menu itself doesn't re-fetch.
   var menuItemsById = null; // null = not yet fetched; {} once it is
@@ -246,21 +246,21 @@
       })
       .catch(function (e) {
         loadingRow.textContent = 'Could not load: ' + e.message;
-        if (typeof window.showToast === 'function') window.showToast('BrahmaBuddhi menu failed to load: ' + e.message);
+        if (typeof window.showToast === 'function') window.showToast('the working repository menu failed to load: ' + e.message);
       });
   }
 
   // ------------------------------------------------------------------
   // Page loading
   // ------------------------------------------------------------------
-  // `dest` is EITHER a real BrahmaBuddhi path (always contains "/" — this is
+  // `dest` is EITHER a real the working repository path (always contains "/" — this is
   // how loadMenu()'s own click handler calls it, having already fetched the
   // menu securely) OR a bare admin-menu.json `id` (never contains "/" — how
-  // every OTHER caller in bhumandala's public JS/HTML must call it, e.g. a
+  // every OTHER caller in buddhi's public JS/HTML must call it, e.g. a
   // deep-link button inside Library Manager). An id is resolved against
   // fetchMenuItems()'s cache before anything loads, so the only path
-  // strings that ever exist in bhumandala's shipped source are the ids
-  // themselves, which mean nothing without a valid BrahmaBuddhi token to
+  // strings that ever exist in buddhi's shipped source are the ids
+  // themselves, which mean nothing without a valid the working repository token to
   // resolve them. `querySuffix`, if given, is appended to the resolved
   // path (e.g. deep-linking to a specific Library Manager section).
   window.dgeOpenBrahmaBuddhiPage = function (dest, querySuffix) {
@@ -276,7 +276,7 @@
       path = path + (querySuffix || '');
       openResolvedPage(path);
     }).catch(function (e) {
-      if (typeof window.showToast === 'function') window.showToast('BrahmaBuddhi: ' + e.message);
+      if (typeof window.showToast === 'function') window.showToast('the working repository: ' + e.message);
     });
   };
 
@@ -316,8 +316,8 @@
 
   // Rewrites <script src>, stylesheet/icon <link href>, <img src> and
   // <a href> found in the fetched page's raw HTML text. See the file
-  // header for why bhumandala targets become plain absolute jsDelivr URLs
-  // while BrahmaBuddhi targets have to be fetched here and inlined.
+  // header for why buddhi targets become plain absolute jsDelivr URLs
+  // while the working repository targets have to be fetched here and inlined.
   function inlineAssets(html, basePath) {
     var jobs = [];
 
@@ -325,7 +325,7 @@
       var resolved = resolvePath(basePath, src);
       if (!resolved) return whole;
       var target = repoFor(resolved.path);
-      if (target.repo === 'bhumandala') return '<script' + pre + ' src="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '></script>';
+      if (target.repo === 'buddhi') return '<script' + pre + ' src="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '></script>';
       var idx = jobs.length;
       jobs.push({ idx: idx, kind: 'script', path: target.path });
       return '<script data-bb-pending="' + idx + '"' + pre + post + '></script>';
@@ -339,7 +339,7 @@
       var resolved = resolvePath(basePath, href);
       if (!resolved) return whole;
       var target = repoFor(resolved.path);
-      if (target.repo === 'bhumandala') return '<link' + pre + ' href="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '>';
+      if (target.repo === 'buddhi') return '<link' + pre + ' href="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '>';
       if (isIcon) return ''; // not worth an authenticated round trip for a favicon; drop rather than break
       var idx = jobs.length;
       jobs.push({ idx: idx, kind: 'style', path: target.path });
@@ -350,15 +350,15 @@
       var resolved = resolvePath(basePath, src);
       if (!resolved) return whole;
       var target = repoFor(resolved.path);
-      if (target.repo === 'bhumandala') return '<img' + pre + ' src="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '>';
+      if (target.repo === 'buddhi') return '<img' + pre + ' src="' + jsDelivrUrl(target.path) + resolved.query + '"' + post + '>';
       var idx = jobs.length;
       jobs.push({ idx: idx, kind: 'image', path: target.path });
       return '<img data-bb-pending="' + idx + '"' + pre + post + '>';
     });
 
-    // A link to another BrahmaBuddhi-hosted page is rewritten to reopen
+    // A link to another the working repository-hosted page is rewritten to reopen
     // through this same loader (a raw href can't carry the auth header a
-    // private repo needs); a link to a bhumandala page is left as a normal
+    // private repo needs); a link to a buddhi page is left as a normal
     // link — this iframe navigating there is fine, it is public.
     html = html.replace(/<a\b([^>]*?)\shref=(["'])([^"']+)\2([^>]*)>/gi, function (whole, pre, q, href, post) {
       var resolved = resolvePath(basePath, href);
@@ -391,7 +391,7 @@
       results.forEach(function (f) {
         if (f.kind === 'script') {
           html = html.replace(new RegExp('<script data-bb-pending="' + f.idx + '"([^>]*)></script>'), function (whole, attrs) {
-            if (f.error) return '<script>console.warn(' + JSON.stringify('BrahmaBuddhi asset failed: ' + f.error.message) + ');</script>';
+            if (f.error) return '<script>console.warn(' + JSON.stringify('the working repository asset failed: ' + f.error.message) + ');</script>';
             return '<script' + attrs + '>' + f.content.replace(/<\/script>/gi, '<\\/script>') + '</script>';
           });
         } else if (f.kind === 'style') {
@@ -425,12 +425,12 @@
       resolvePath.toString() + ';' +
       'function legacyTranslate(path){' +
         'var m=/^admin\\/config\\/(.+)$/.exec(path);' +
-        'if(m&&LEGACY_CFG.indexOf(m[1])!==-1)return{repo:"bhumandala",path:"config/"+m[1]};' +
+        'if(m&&LEGACY_CFG.indexOf(m[1])!==-1)return{repo:"buddhi",path:"config/"+m[1]};' +
         'var m2=/^admin\\/content\\/(.+)$/.exec(path);' +
-        'if(m2&&LEGACY_CONTENT.indexOf(m2[1])!==-1)return{repo:"bhumandala",path:"content/"+m2[1]};' +
+        'if(m2&&LEGACY_CONTENT.indexOf(m2[1])!==-1)return{repo:"buddhi",path:"content/"+m2[1]};' +
         'return null;' +
       '}' +
-      'function repoFor(path){var l=legacyTranslate(path);if(l)return l;var isBrahma=BRAHMA_PREFIXES.some(function(p){return path.indexOf(p)===0;});return{repo:isBrahma?"brahma":"bhumandala",path:path};}' +
+      'function repoFor(path){var l=legacyTranslate(path);if(l)return l;var isBrahma=BRAHMA_PREFIXES.some(function(p){return path.indexOf(p)===0;});return{repo:isBrahma?"brahma":"buddhi",path:path};}' +
       'var origFetch=window.fetch.bind(window);' +
       'window.fetch=function(input,init){' +
         'var url=(typeof input==="string")?input:(input&&input.url);' +
@@ -442,9 +442,9 @@
               'var opts={};for(var k in init)opts[k]=init[k];' +
               'opts.headers={};if(init&&init.headers)for(var h in init.headers)opts.headers[h]=init.headers[h];' +
               'opts.headers.Authorization="token "+TOKEN;opts.headers.Accept="application/vnd.github.v3.raw";opts.cache="no-store";' +
-              'return origFetch("https://api.github.com/repos/Tribhuvanachar/BrahmaBuddhi/contents/"+target.path+"?ref=main"+(resolved.query?resolved.query.replace("?","&"):""), opts);' +
+              'return origFetch("https://api.github.com/repos/Tribhuvanachar/the working repository/contents/"+target.path+"?ref=main"+(resolved.query?resolved.query.replace("?","&"):""), opts);' +
             '}' +
-            'return origFetch("https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala@main/"+target.path+(resolved.query||""), init);' +
+            'return origFetch("https://cdn.jsdelivr.net/gh/Tribhuvanachar/buddhi@main/"+target.path+(resolved.query||""), init);' +
           '}' +
         '}' +
         'return origFetch(input, init);' +

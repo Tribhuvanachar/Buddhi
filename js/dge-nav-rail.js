@@ -62,7 +62,7 @@
     { id: "linganushasana", group: "tools", label: "Liṅgānuśāsana", glyph: "लि", href: "vyakarana/linganushasana.html" },
     { id: "ganapatha", group: "tools", label: "Gaṇapāṭha", glyph: "ग", href: "vyakarana/ganapatha.html" }
     // 12 Sep 2026: "Kamadhenu trials" pulled -- still a pilot, moved to
-    // ShriBuddhi, not ready for the public site.
+    // the working repository, not ready for the public site.
   ];
 
   // Per-device vertical position of the tab (px from viewport top). Absent

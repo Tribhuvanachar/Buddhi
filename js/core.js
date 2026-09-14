@@ -124,19 +124,19 @@ const DGE_LEGACY_SLUGS = {
   // paths lands on the real text instead. Exact slugs, not a prefix: there is
   // no tika_* folder on the other side to append.
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_prakashika':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_padarthadipikodbodhika':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_mandopakarini':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_shrichalarisheshacarya':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_iti_shrimadvedangamuni':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'darshana/vedanta/dvaita/DvaitaVedantaIn/later_acharyas/sumadhva_vijaya/tika_iti_shrinarayanapanditacarya':
-    'DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1',
+    'Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1',
   'shankara_bhashya':       'darshana/vedanta/advaita/shankara_bhashya',
   'itihasas':               'itihasa',
   'puranas':                'purana',
@@ -146,8 +146,8 @@ const DGE_LEGACY_SLUGS = {
   'koshas':                 'kosha',
   'stotras':                'stotra',
   'pancharatra_agama':      'agama/vaishnava_agama/pancharatra',
-  'dasakuta':               'DvaitaVedanta/Itara/DasaSahitya/dasakuta',
-  'vyasakuta':              'DvaitaVedanta/Itara/DasaSahitya/vyasakuta',
+  'dasakuta':               'Tattvavada/Itara/DasaSahitya/dasakuta',
+  'vyasakuta':              'Tattvavada/Itara/DasaSahitya/vyasakuta',
   // 25 Aug 2026 Agama restructure. pancharatra/pashupata/shaiva_siddhanta
   // moved intact under new parents, so their sub-paths resolve exactly.
   // pratyabhijna/natha_sampradaya/shakta_agama were split across several
@@ -200,7 +200,7 @@ const DGE_LEGACY_SLUGS = {
   // PrahladaKrutaNarasimha for the same reason.
   'dvaitavedanta':                       'darshana/vedanta/dvaita/DvaitaVedantaIn',
   'darshana/vedanta/dvaita/sarvamula':   'darshana/vedanta/dvaita/Anandamakaranda',
-  'stotra/pns':                          'DvaitaVedanta/Itara/Stotra/prahlada_kruta_narasimha',
+  'stotra/pns':                          'Tattvavada/Itara/Stotra/prahlada_kruta_narasimha',
   // 25 Aug 2026 Purana restructure: purana/<X> split into purana/maha_purana/
   // (the 18 traditional Mahapuranas, plus the Bhagavata-Madhva variant and
   // Vayu Purana, already present) and purana/upa_purana/ (was upapuranas).
@@ -308,7 +308,7 @@ window.dgeAdminConfigUrl = window.dgeAdminConfigUrl || function (name) {
    freshly published update reaches someone who already has the site loaded.
    (12 Sep 2026: these used to sit under admin/config/ and admin/content/ —
    both renamed to repo-root config/ and content/ when the actual admin
-   TOOLS moved out to BrahmaBuddhi; these two files are read live by every
+   TOOLS moved out to the working repository; these two files are read live by every
    visitor and stayed public.) */
 window.dgeContentUrl = window.dgeContentUrl || function (name) {
   const self = (document.currentScript && document.currentScript.src) ||
@@ -809,7 +809,7 @@ function dgeNormalizeGranthaData(data, granthaTitle) {
         // prefer it, matching the itihasa_purana_text branch above which
         // already prefers chapter.reference over a raw id.
         vedicId: item.reference || item.id || '',
-        // The item's raw id too (DV_6001, AV_C01_S01_I01, ...): deep links
+        // The item's raw id too (SM7:23, AV_C01_S01_I01, ...): deep links
         // built from data-side indexes (prayoga index, backlinks) address
         // units by this id, while vedicId above is the human-facing
         // reference string when one exists.
@@ -904,7 +904,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Global short-URL abbreviations (js/text-abbreviations.js, loaded before
   // this file, is the one place these are configured) — ?SMV=1.1 means the
-  // same as ?path=DvaitaVedanta/Itara/Kavya/sumadhva_vijaya/sarga_1&jumpShloka=1, just
+  // same as ?path=Tattvavada/Itara/Kavya/sumadhva_vijaya/sarga_1&jumpShloka=1, just
   // short enough to type or share. Resolved to plain path/jumpShloka values
   // BEFORE those are read below, so everything downstream — including the
   // legacy-slug upgrade and the namespace logic — behaves exactly as if the
@@ -1000,7 +1000,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const stotrasDirectChild = slug.match(/^stotra\/([^/]+)$/);
 
-  // 23 Aug 2026: stotra/pns was renamed DvaitaVedanta/Itara/Stotra/prahlada_kruta_narasimha for
+  // 23 Aug 2026: stotra/pns was renamed Tattvavada/Itara/Stotra/prahlada_kruta_narasimha for
   // display-name consistency (see DGE_LEGACY_SLUGS above), but this text's
   // localStorage/audio-cache namespace has always been the bare folder
   // name (see the comment at dgeGranthaFetchUrl above this block). Without
@@ -1409,7 +1409,7 @@ function dgeResolveQuickJumpTarget(target) {
         return vid && normalize(vid).indexOf(wanted + '.') === 0;
       });
     }
-    // Data-side unit ids (DV_6001 ...) aren't dotted numbers and aren't the
+    // Data-side unit ids (SM7:23 ...) aren't dotted numbers and aren't the
     // display reference -- match them exactly against the id each shloka
     // now carries. For a nested grantha this lands on the chapter's first
     // shloka, which is the honest resolution of a chapter-level id.

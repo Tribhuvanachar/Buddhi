@@ -106,10 +106,10 @@ function dgeRevealAdminTools() {
   // 12 Sep 2026: every id that used to name an admin/*.html page directly
   // (adminLibraryManagerItem, adminKoshaManagerItem, ...) was removed from
   // this list along with those pages themselves — they moved to the private
-  // BrahmaBuddhi repo and are no longer named anywhere in this one.
+  // the working repository repo and are no longer named anywhere in this one.
   // adminBrahmaBuddhiItem is the single, generically-labelled replacement:
-  // it only opens the PAT prompt (js/admin-brahmabuddhi.js), which fetches
-  // the real (page-naming) menu from BrahmaBuddhi itself once unlocked.
+  // it only opens the PAT prompt (js/admin-the working repository.js), which fetches
+  // the real (page-naming) menu from the working repository itself once unlocked.
   ['adminFilesItem', 'adminConfigItem', 'adminBrahmaBuddhiItem'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.style.display = 'flex';
@@ -117,7 +117,7 @@ function dgeRevealAdminTools() {
   // Manage Users only makes sense once accounts are actually set up —
   // showing it before then would just be a menu item that always toasts
   // "not set up yet" (see openUserRolesModal in user-roles.js). Access
-  // Control's own gate moved with it to BrahmaBuddhi's admin/access-control.html.
+  // Control's own gate moved with it to the working repository's admin/access-control.html.
   if (window.AUTH_CONFIG && window.AUTH_CONFIG.enabled) {
     ['adminUserRolesItem', 'adminViewAsItem'].forEach(id => {
       const el = document.getElementById(id);
@@ -537,11 +537,11 @@ async function dgeAdminNavigate(path) {
     const allParts = path.split('/').filter(Boolean);
     const visibleParts = allParts.slice(rootParts.length);
     let acc = root;
-    // An empty root is the repo root itself (bhumandala) — label it as
+    // An empty root is the repo root itself (buddhi) — label it as
     // such rather than a bare "/", and don't let the next segment pick up
     // a leading slash from an empty accumulator ("" + "/dge" = "/dge",
     // an invalid path one level narrower than intended).
-    let crumbHtml = `<span class="admin-crumb" data-path="${root}" onclick="window.dgeAdminNavigateClick('${root}')" ondragover="event.preventDefault(); this.classList.add('drag-over');" ondragleave="this.classList.remove('drag-over');" ondrop="window.dgeAdminHandleDrop(event, '${root}')">${root || 'bhumandala'}</span>`;
+    let crumbHtml = `<span class="admin-crumb" data-path="${root}" onclick="window.dgeAdminNavigateClick('${root}')" ondragover="event.preventDefault(); this.classList.add('drag-over');" ondragleave="this.classList.remove('drag-over');" ondrop="window.dgeAdminHandleDrop(event, '${root}')">${root || 'buddhi'}</span>`;
     visibleParts.forEach(p => {
       acc = acc ? acc + '/' + p : p;
       const dest = acc;
@@ -814,8 +814,8 @@ async function dgeAdminValidateGranthaFileEntries(fileEntries) {
   // requirement.
   //
   // 23 Aug 2026: the project lead deliberately chose PascalCase for these
-  // four folders (SarvaMula/DvaitaVedanta/SetuTila under Vedanta/Dvaita,
-  // and DvaitaVedanta/Itara/Stotra/prahlada_kruta_narasimha) as the new naming standard going
+  // four folders (SarvaMula/Tattvavada/SetuTila under Vedanta/Dvaita,
+  // and Tattvavada/Itara/Stotra/prahlada_kruta_narasimha) as the new naming standard going
   // forward, so they're exempted here rather than nagging on every future
   // load of this editor.
   const DGE_INTENTIONAL_PASCAL_CASE = new Set([

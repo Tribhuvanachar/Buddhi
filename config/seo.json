@@ -13,7 +13,7 @@
   "index.html, which the build never overwrites (build_seo_site.Site.write refuses to replace an unstamped file)."
  ],
  "siteOrigin": "https://tribhuvanachar.github.io",
- "sitePrefix": "/bhumandala",
+ "sitePrefix": "/buddhi",
  "publicRoot": "/dge",
  "catalogueUrl": "/texts/",
  "siteName": "Sarvamūla Digital Library",
@@ -28,7 +28,7 @@
   "darshana": "darshana",
   "kavya_alankara": "kavya",
   "stotra": "stotra",
-  "DvaitaVedanta/Itara/DasaSahitya": "dasa",
+  "Tattvavada/Itara/DasaSahitya": "dasa",
   "agama": "agama",
   "shastra": "shastra",
   "nitishastra": "niti",
@@ -42,7 +42,7 @@
  "excludePrefixes": [
   "darshana/vedanta/dvaita/DvaitaVedantaIn",
   "darshana/vedanta/advaita",
-  "DvaitaVedanta/SarvaMula",
+  "Tattvavada/SarvaMula",
   "darshana/vedanta/dvaita/Anandamakaranda"
  ],
  "includePrefixes": [],

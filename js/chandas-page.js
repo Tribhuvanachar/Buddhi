@@ -363,7 +363,7 @@
     var msg = $('#cr-adm-msg');
     var tok = ''; try { tok = localStorage.getItem('github_admin_pat') || ''; } catch (e) {}
     if (!tok) { msg.textContent = 'No GitHub token on this device (set it in the reader\'s Admin → Repo Files).'; return; }
-    var owner = 'Tribhuvanachar', repo = 'bhumandala', path = 'config/chandas-features.json';
+    var owner = 'Tribhuvanachar', repo = 'buddhi', path = 'config/chandas-features.json';
     var body = JSON.stringify({ note: S.featuresNote || 'Chandas report page feature visibility (see js/chandas-page.js).', updatedAt: new Date().toISOString(), features: features }, null, 2) + '\n';
     var api = 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/' + path;
     var hdr = { Authorization: 'token ' + tok, Accept: 'application/vnd.github+json' };

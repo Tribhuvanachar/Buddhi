@@ -91,7 +91,7 @@
 
   function repo() {
     const c = window.GITHUB_REPO_CONFIG ||
-      { owner: 'Tribhuvanachar', repo: 'bhumandala', branch: 'main' };
+      { owner: 'Tribhuvanachar', repo: 'buddhi', branch: 'main' };
     return c;
   }
 

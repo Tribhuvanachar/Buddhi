@@ -241,13 +241,13 @@
                  admin/*.html page (Library Manager, Kosha Manager, Repo &
                  Workflows, OCR Review/Studio, Access Control, the Convert
                  tool, ...) was removed from here along with those pages —
-                 they moved to the private BrahmaBuddhi repo and this
+                 they moved to the private the working repository repo and this
                  markup is served to EVERY visitor regardless of what
                  config/menu.json later does to it, so a hardcoded href
                  would have named every one of them in this repo's raw
                  HTML. This one generically-labelled row is the only trace
-                 left; js/admin-brahmabuddhi.js fetches the real (page-
-                 naming) menu from BrahmaBuddhi only after a valid token
+                 left; js/admin-the working repository.js fetches the real (page-
+                 naming) menu from the working repository only after a valid token
                  unlocks it. -->
             <div class="pop-item" id="adminBrahmaBuddhiItem" style="display:none;" onclick="window.togglePopup('adminToolsPopup'); window.dgeOpenBrahmaBuddhiGate()">🔒 Management Tools</div>
             <div class="pop-item" id="adminUserRolesItem" style="display:none;" onclick="window.togglePopup('adminToolsPopup'); window.openUserRolesModal()">👥 Manage Users</div>
@@ -591,7 +591,7 @@
       <button class="btn-sm" onclick="window.closeModal('licenseModal')" style="font-size:11px;">✖ Close</button>
     </div>
     <div class="modal-body" style="font-size:13px; line-height:1.6;">
-      <p>The software running this site is open source, under the <a href="https://github.com/Tribhuvanachar/bhumandala/blob/main/LICENSE" target="_blank" rel="noopener" style="color:var(--accent-red); font-weight:700;">Apache License 2.0</a>.</p>
+      <p>The software running this site is open source, under the <a href="https://github.com/Tribhuvanachar/buddhi/blob/main/LICENSE" target="_blank" rel="noopener" style="color:var(--accent-red); font-weight:700;">Apache License 2.0</a>.</p>
       <p>The texts themselves come from many different sources — public domain editions, individually credited open-licence digitisation projects, and original work by this project's own scholars and volunteers. Each text's specific source and licence, where applicable, is recorded with that text rather than repeated here, since it differs work to work.</p>
     </div>
   </div>
@@ -1485,7 +1485,7 @@
      abbreviation routing it was first noticed against) never run. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" async></script>
 <script src="js/admin-editor.js?v=4.87.0"></script>
-<script src="js/admin-brahmabuddhi.js?v=1"></script>
+<script src="js/admin-the working repository.js?v=1"></script>
 <script src="js/config-editor.js?v=4.85.0"></script>
 <script src="js/content-editor.js?v=4.61.4"></script>
 <script src="js/text-abbreviations.js?v=1"></script>

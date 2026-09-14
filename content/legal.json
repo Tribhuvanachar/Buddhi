@@ -6,41 +6,49 @@
   "title": "Credits",
   "intro_html": "<p>The Sarvamūla Digitisation &amp; Educational Project stands on the labour of many digitisation efforts, editors, and scholars. The original Sanskrit texts are, in general, public-domain works of their traditional authors; the <em>digitised, structured, transliterated</em> editions we build on are credited below, and each individual text also records its own specific source and licence on its own page. Descriptive prose we write ourselves — guru biographies, place notes — is composed freshly from multiple accounts: facts are facts, but the wording is our own. We are grateful to all of the following.</p>",
   "groups": [
-   {"heading": "Dvaita / Mādhva corpus", "items": [
-     "dvaitavedanta.in — Madhva's Sarvamūla granthas, Jayatīrtha's and later ṭīkās (largest single source)",
-     "setutila.in — the Setu Tila edition of the Brahmasūtra-bhāṣya (structural headings &amp; pāṭhāntara notes)",
-     "anandamakaranda.in — Dvādaśastotra and allied devotional texts",
-     "tirthaprabandha.wordpress.com — verse-by-verse Devanāgarī of Vādirāja's Tīrthaprabandha mūla",
+   {
+    "heading": "Dvaita / Mādhva corpus",
+    "items": [
      "madhwafestivals.com — kṣetra / tīrtha identifications for the Tīrtha holy-places database"
-   ]},
-   {"heading": "Viśiṣṭādvaita &amp; Advaita", "items": [
-     "srivaishnavan.com — Rāmānuja corpus, Divya Prabandham, later ācāryas",
-     "advaitasharada.sringeri.net (Śṛṅgeri) — Śaṅkara bhāṣyas and Advaita works"
-   ]},
-   {"heading": "Vedic &amp; pan-Sanskrit corpora", "items": [
+    ]
+   },
+   {
+    "heading": "Viśiṣṭādvaita &amp; Advaita",
+    "items": []
+   },
+   {
+    "heading": "Vedic &amp; pan-Sanskrit corpora",
+    "items": [
      "Digital Corpus of Sanskrit (DCS) — Oliver Hellwig, 2010–2024 (CC-BY 4.0)",
      "GRETIL, Göttingen — assorted mūla texts",
      "github.com/vishvasa/vedAH — Vājasaneya / Mādhyandina / Śatapatha Brāhmaṇa",
      "sanskritdocuments.org &amp; VedaKosh (Virendra Agarwal); Taittirīya transcription (Muralidhara B. A.)",
      "Vedic Reserve, Maharishi University; sa.wikisource.org"
-   ]},
-   {"heading": "Vyākaraṇa, Kośa &amp; tools", "items": [
+    ]
+   },
+   {
+    "heading": "Vyākaraṇa, Kośa &amp; tools",
+    "items": [
      "ashtadhyayi.com / ashtadhyayi-com/data — Aṣṭādhyāyī sūtras &amp; bhāṣya",
      "Dhaval Patel's TEI Siddhānta-Kaumudī; ambuda-org/vidyut (MIT); hrishikeshrt/chanda",
      "StarDict dictionaries — Bālamanoramā, Kāśikā, Nyāsa, Tattvabodhinī (verified against indic-dict)",
      "S. C. Vasu, The Aṣṭādhyāyī of Pāṇini (1891, public domain); South Asia Institute OER, UT Austin"
-   ]},
-   {"heading": "Guru Paramparā", "items": [
+    ]
+   },
+   {
+    "heading": "Guru Paramparā",
+    "items": [
      "The community-compiled Madhva Guru Paramparā genealogical table (supplied by the project lead)",
      "sumadhwaseva.com, uttaradimath.org, vyasarajamatha.org, kashimath.org, partagalimath.org, madhwayati.blogspot.com, madhwasakha.com, shivallibrahmins.com",
      "B. N. K. Sharma, History of the Dvaita School of Vedānta and Its Literature; Nārāyaṇa Paṇḍitācārya, Sumadhva Vijaya; and Wikipedia for cross-checking dates"
-   ]}
+    ]
+   }
   ],
   "outro_html": "<p><strong>AI assistance.</strong> Some optional word-glosses and enrichment are generated with AI on a bring-your-own-key basis; AI output is clearly marked and never replaces the source text.</p><p><strong>Images.</strong> Photographs link to Wikimedia Commons (licence-checked); no images are copied from the sites above.</p><p><em>If you are a rights-holder and see something that needs different credit or removal, please contact us — we'll fix it promptly.</em></p>"
  },
  "license": {
   "title": "License",
-  "html": "<p>The software running this site is open source, under the <a href=\"https://github.com/Tribhuvanachar/bhumandala/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\"><strong>Apache License 2.0</strong></a>.</p><p>The texts themselves come from many different sources — public-domain editions, individually credited open-licence digitisation projects, and original work by this project's own scholars and volunteers. Each text's specific source and licence, where applicable, is recorded with that text rather than repeated here, since it differs work to work. See the <strong>Credits</strong> for the digitisation projects we build upon.</p>"
+  "html": "<p>The software running this site is open source, under the <a href=\"https://github.com/Tribhuvanachar/buddhi/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\"><strong>Apache License 2.0</strong></a>.</p><p>The texts themselves come from many different sources — public-domain editions, individually credited open-licence digitisation projects, and original work by this project's own scholars and volunteers. Each text's specific source and licence, where applicable, is recorded with that text rather than repeated here, since it differs work to work. See the <strong>Credits</strong> for the digitisation projects we build upon.</p>"
  },
  "terms": {
   "title": "Terms & Conditions",

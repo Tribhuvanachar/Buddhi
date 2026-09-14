@@ -75,7 +75,7 @@ const MSG91_TEMPLATE_ID = defineString('MSG91_TEMPLATE_ID', { default: '' });
 // and nothing else. A classic PAT with `repo` scope would hand whoever
 // reaches this function the whole account -- see FIREBASE_SETUP.md SS12.
 const GITHUB_DISPATCH_TOKEN = defineSecret('GITHUB_DISPATCH_TOKEN');
-const GITHUB_REPO = defineString('GITHUB_REPO', { default: 'Tribhuvanachar/bhumandala' });
+const GITHUB_REPO = defineString('GITHUB_REPO', { default: 'Tribhuvanachar/buddhi' });
 
 // The donation/supporter system's own secrets and config. Both Cashfree
 // and Razorpay are wired in (lib/payment-providers.js) alongside the

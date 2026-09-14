@@ -52,7 +52,7 @@
     "",
     "  Built by tools/build_synonyms.py. It currently reads the LOCAL copy of the",
     "  reverse dictionary, which holds 1,764 of Monier-Williams' 28,238 English",
-    "  headwords — the rest live in the bhumandala-kosha-data repo the live site",
+    "  headwords — the rest live in the buddhi-kosha-data repo the live site",
     "  loads over a CDN. Point the script at a full local copy and rerun it to",
     "  cover the remainder.",
     "",

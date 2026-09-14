@@ -31,10 +31,10 @@ const appConfig = {
   // 12 Sep 2026: pulled from the public site -- still a pilot, not ready for
   // general visitors to trigger (each call spends real paid ZeroGPU compute
   // on a PRO account). js/kamadhenu.js, pages/kamadhenu/ and data/kamadhenu/
-  // moved to ShriBuddhi; re-deploy from there once the pilot is ready.
+  // moved to the working repository; re-deploy from there once the pilot is ready.
   kamadhenuSpaceUrl: "",
   // Full ~1.65M-headword, 63-dictionary Kosha corpus, built and published
-  // to the "dist" branch of the separate Tribhuvanachar/bhumandala-kosha-data
+  // to the "dist" branch of the separate Tribhuvanachar/buddhi-kosha-data
   // repo (too large for this repo's 1GB budget). Served over jsDelivr's
   // GitHub CDN, which mirrors the branch with permissive CORS. kosha.js
   // only ever fetches manifest.json plus small per-bucket/per-entry shards
@@ -47,10 +47,10 @@ const appConfig = {
   // breaks search entirely for those users. A SHA ref is immutable and
   // always internally consistent. After each kosha-data build, update
   // this SHA (git ls-remote <data-repo> dist) and bump config.js's ?v=.
-  koshaDataBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas",
+  koshaDataBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/buddhi-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas",
   // The enriched render tree (koshas_r) that kosha2.html displays —
   // built by the same Action from tools/kosha_enrich.py; same SHA.
-  koshaRenderBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas_r",
+  koshaRenderBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/buddhi-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas_r",
   // The Sanskrit WordNet lookup tree that js/intellisense.js reads for the
   // अर्थः section of the word popover, built by tools/build_wordnet.py and
   // published to this repo's own "wordnet-dist" branch — data only, no
@@ -60,12 +60,12 @@ const appConfig = {
   // limit left. GitHub Pages serves only main, so a branch is enough to keep
   // it off the site while jsDelivr still serves it. Set this to '' to read a
   // local build from data/_wordnet/ instead.
-  wordnetDataBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala@66c7895fa7b1f30150ebbf74ea67abc28909e550/_wordnet",
+  wordnetDataBase: "search_index/_wordnet",
   // The Kavya corpus js/kavya.js reads -- 24 works, 49 layers, 67,169
   // entries, 50 MB -- on this repo's "kavya-dist" branch for the same
   // reason. kavya.html carries the same URL as its own default, since it
   // does not load this file.
-  kavyaDataBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala@75ef2103bc07770ccb861497c32636d706c09fa4",
+  kavyaDataBase: "search_index",
   // The corpus-search index js/dge-search.js reads -- 983 granthas, 104,870
   // units. Rebuilding it with the extract_text fix (the one that made
   // every shloka-based grantha index its verses rather than nothing) took the
@@ -94,7 +94,7 @@ const appConfig = {
   // (cdn.jsdelivr.net fetches from the headless browser were dropped by the
   // dev proxy, curl to the same URL was fine) -- worth a quick real-browser
   // check next time this file is touched.
-  searchIndexBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/bhumandala@838335f8152654c37ee1c256c36b6ff6aab3927f",
+  searchIndexBase: "search_index",
   // THE CORPUS SWITCH. Empty (the default, and what is live today) means
   // the reader fetches data/<path>/data.json as a public static file,
   // exactly as it always has. Set it to the corpusFile function's base URL
@@ -303,7 +303,7 @@ window.dgeGetEffectiveShlokaFields = function() {
 //   - optional fine-tuned overrides (safe zone, baked-branding flag) for
 //     specific templates. Anything discovered that ISN'T listed here
 //     still works, just with a generic centered safe zone by default.
-const GITHUB_REPO_CONFIG = { owner: 'Tribhuvanachar', repo: 'bhumandala', branch: 'main', imagesPath: 'images' };
+const GITHUB_REPO_CONFIG = { owner: 'Tribhuvanachar', repo: 'buddhi', branch: 'main', imagesPath: 'images' };
 window.GITHUB_REPO_CONFIG = GITHUB_REPO_CONFIG;
 
 // New-file extensions offered in the admin editor's "+ New File" button —
@@ -313,7 +313,7 @@ window.ADMIN_NEW_FILE_EXTENSIONS = ADMIN_NEW_FILE_EXTENSIONS;
 
 // Admin access levels — each superadmin URL code is bound to a specific
 // root path it can NEVER navigate above, even by tapping "Up" repeatedly.
-// An empty rootPath means the actual repository root (bhumandala) — no
+// An empty rootPath means the actual repository root (buddhi) — no
 // restriction at all. Requested directly by the project lead, 11 Sep 2026:
 // the admin file manager was defaulting to (and capping "Up" at) ,
 // hiding the rest of the repo (tools/, admin/, kamadhenu_dataset/, etc.)
@@ -718,7 +718,7 @@ const QUICK_SEARCH_ABBREVIATIONS = [
       if (parts.length !== 1 || !/^\d+$/.test(parts[0])) return null;
       const n = parseInt(parts[0], 10);
       if (!n) return null;
-      return { granthaPath: 'DvaitaVedanta/Itara/Stotra/prahlada_kruta_narasimha', shlokaNumber: n };
+      return { granthaPath: 'Tattvavada/Itara/Stotra/prahlada_kruta_narasimha', shlokaNumber: n };
     }
   }
 ];

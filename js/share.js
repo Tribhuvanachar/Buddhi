@@ -25,7 +25,7 @@
     var ref = '';
     if (sh) {
       var vid = sh.vedicId ? String(sh.vedicId).trim() : '';
-      if (vid && !/^[A-Z]{2,}_/.test(vid)) ref = vid.length > 120 ? vid.slice(0, 117) + '…' : vid;   // data-side codes (DV_2586) are not a reference
+      if (vid && !/^[A-Z]{2,}_/.test(vid)) ref = vid.length > 120 ? vid.slice(0, 117) + '…' : vid;   // data-side codes (SM26:1) are not a reference
       else if (sh.unitNo) ref = (sh.unitId || '') + ' · ' + sh.unitNo;
     }
     var url;

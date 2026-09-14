@@ -57,8 +57,6 @@
   {
    "id": "sync-dvaitavedanta",
    "file": "sync-dvaitavedanta.yml",
-   "name": "Sync check dvaitavedanta.in",
-   "blurb": "Asks dvaitavedanta.in for each grantha's page census (one request per grantha), diffs it against last time, and spot-checks stored text against live pages. Names exactly which granthas to re-extract. Imports nothing.",
    "writes": "admin/config/dv_sync.state.json (the remembered census)",
    "inputs": [
     {
@@ -270,14 +268,11 @@
   {
    "id": "sync-setutila",
    "file": "check-sources.yml",
-   "name": "SetuTila — setutila.in",
    "group": "source-sync",
-   "site": "setutila.in",
-   "url": "https://setutila.in/catalogue/",
    "source_ids": [
     "setutila"
    ],
-   "feeds": "DvaitaVedanta/SarvaMula — 47 granthas",
+   "feeds": "Tattvavada/SarvaMula — 47 granthas",
    "importer": "extract-setutila",
    "blurb": "Counts published posts and reads the newest modified date through the WordPress API. If it moved, run the SetuTila importer (delta sync).",
    "writes": "nothing",
@@ -300,10 +295,7 @@
   {
    "id": "sync-dvaitavedanta-quick",
    "file": "check-sources.yml",
-   "name": "DvaitaVedanta.in — dvaitavedanta.in (quick check)",
    "group": "source-sync",
-   "site": "dvaitavedanta.in",
-   "url": "https://dvaitavedanta.in/",
    "source_ids": [
     "dvaitavedanta"
    ],
@@ -330,10 +322,7 @@
   {
    "id": "sync-anandamakaranda",
    "file": "check-sources.yml",
-   "name": "Ānandamakaranda — anandamakaranda.in",
    "group": "source-sync",
-   "site": "anandamakaranda.in",
-   "url": "https://anandamakaranda.in/Main_Page",
    "source_ids": [
     "anandamakaranda"
    ],
@@ -360,10 +349,7 @@
   {
    "id": "sync-srivaishnavan",
    "file": "check-sources.yml",
-   "name": "Śrī Rāmānuja Meghamālā — srivaishnavan.com",
    "group": "source-sync",
-   "site": "srivaishnavan.com",
-   "url": "https://srivaishnavan.com/sri-ramanuja-meghamala/",
    "source_ids": [
     "srivaishnavan_meghamala"
    ],
@@ -390,10 +376,7 @@
   {
    "id": "sync-advaitasharada",
    "file": "check-sources.yml",
-   "name": "Advaita Śāradā — advaitasharada.sringeri.net",
    "group": "source-sync",
-   "site": "advaitasharada.sringeri.net",
-   "url": "https://advaitasharada.sringeri.net/",
    "source_ids": [
     "advaitasharada"
    ],
@@ -492,7 +475,7 @@
     "dasasahitya_net",
     "meerasubbarao"
    ],
-   "feeds": "DvaitaVedanta/Itara/DasaSahitya — 152 composers, 15,863 compositions",
+   "feeds": "Tattvavada/Itara/DasaSahitya — 152 composers, 15,863 compositions",
    "importer": "import-dasa-sahitya",
    "blurb": "Reads the three blogs' RSS feeds for the newest post. If any moved, run the Dāsa Sāhitya importer.",
    "writes": "nothing",
@@ -562,7 +545,6 @@
    "name": "Advaita Śāradā — re-read the site and open a PR",
    "group": "content-import",
    "writes": "corpus",
-   "blurb": "Re-reads all 51 works we hold from advaitasharada.sringeri.net (~17 min) and opens a pull request with what changed. Guarded: no file may lose items.",
    "inputs": [
     {
      "name": "works",
@@ -590,7 +572,6 @@
    "name": "Śrī Rāmānuja Meghamālā — fetch changed granthas and open a PR",
    "group": "content-import",
    "writes": "corpus",
-   "blurb": "Asks srivaishnavan.com which posts changed, re-fetches only those granthas whole, rebuilds them and opens a pull request.",
    "inputs": [
     {
      "name": "all",
