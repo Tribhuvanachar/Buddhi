@@ -1463,6 +1463,11 @@
      linking, provenance boxes, the certificate wrapper/badge. Loaded
      before render.js, which calls into it. Additive: a commentary without
      format:gold_v2_2 renders exactly as it always has. -->
+<!-- Whitelist sanitiser for corpus body text on the innerHTML path: keeps the
+     span/div/br/b/em markup importers put in the text, escapes everything
+     else. Loaded before render.js, which calls into it. Absent, render.js
+     falls through to the previous behaviour. -->
+<script src="js/dge-sanitize.js?v=1"></script>
 <script src="js/gold-render.js?v=1"></script>
 <script src="js/render.js?v=5.2.0"></script>
 <script src="js/legal-content.js?v=1.0"></script>
