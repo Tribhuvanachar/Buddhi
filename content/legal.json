@@ -1,7 +1,7 @@
 {
  "_readme": "Editable About/Credits/License/Terms text for the DGE project. Edit inline at admin/legal.html (super-admin → Edit text → publish), or edit this file directly. The reader footer modals (Credits/License/Terms) and the admin/legal.html page both read from here — one source of truth. HTML is allowed in the *_html fields; keep it simple (p, ul, li, a, strong, em).",
  "version": "1.0",
- "updated": "2026-09-04",
+ "updated": "2026-09-15",
  "credits": {
   "title": "Credits",
   "intro_html": "<p>The Sarvamūla Digitisation &amp; Educational Project stands on the labour of many digitisation efforts, editors, and scholars. The original Sanskrit texts are, in general, public-domain works of their traditional authors; the <em>digitised, structured, transliterated</em> editions we build on are credited below, and each individual text also records its own specific source and licence on its own page. Descriptive prose we write ourselves — guru biographies, place notes — is composed freshly from multiple accounts: facts are facts, but the wording is our own. We are grateful to all of the following.</p>",
@@ -29,7 +29,7 @@
    {
     "heading": "Vyākaraṇa, Kośa &amp; tools",
     "items": [
-     "ashtadhyayi.com / ashtadhyayi-com/data — Aṣṭādhyāyī sūtras &amp; bhāṣya",
+     "<strong>ashtadhyayi.com</strong> (ashtadhyayi-com/data) — the Aṣṭādhyāyī sūtrapāṭha, padaccheda, anvaya, anuvṛtti, adhikāra and sūtra types, used with credit per that project's terms. Its text is corrected continuously by scholars through the site's own edit button, and we re-sync from it rather than holding a frozen copy — the numbering and readings here follow theirs.",
      "Dhaval Patel's TEI Siddhānta-Kaumudī; ambuda-org/vidyut (MIT); hrishikeshrt/chanda",
      "StarDict dictionaries — Bālamanoramā, Kāśikā, Nyāsa, Tattvabodhinī (verified against indic-dict)",
      "S. C. Vasu, The Aṣṭādhyāyī of Pāṇini (1891, public domain); South Asia Institute OER, UT Austin"
