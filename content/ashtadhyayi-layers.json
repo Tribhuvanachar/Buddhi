@@ -51,12 +51,43 @@
   },
   "vasu_kaumudi": {
    "visible": true
+  },
+  "padamanjari": {
+   "visible": true
+  },
+  "laghu_kaumudi": {
+   "visible": true
+  },
+  "praudha_manorama": {
+   "visible": true
+  },
+  "laghu_shabdendushekhara": {
+   "visible": true
+  },
+  "prakriya_sarvasvam": {
+   "visible": true
+  },
+  "sudha": {
+   "visible": true
+  },
+  "sarala": {
+   "visible": true
+  },
+  "sutrartha": {
+   "visible": true
+  },
+  "vasu_summary": {
+   "visible": true
+  },
+  "sutrartha_english": {
+   "visible": true
   }
  },
  "fields": {
   "english": {
-   "visible": false,
-   "note": "Disabled 23 Aug 2026. Verbatim ashtadhyayi.com sutrartha_english.txt text (3,941 of 3,962 sutras), shown to readers with zero attribution, held only under an informal curator e-mail permission -- the source repo (github.com/ashtadhyayi-com/data) has no formal LICENSE. Data has been removed from sutrapatha/data.json, not just hidden here. Re-enable only once real licensing is resolved with ashtadhyayi.com; see PENDING.md for the full writeup and admin/ashtadhyayi.html's licence-review tracker."
+   "visible": true,
+   "note": "Re-enabled 15 Sep 2026 on the project lead's decision. Disabled 23 Aug 2026 because the text was shown with no attribution and rested on an informal curator e-mail rather than stated terms. The source repository's README now states them — \"You are free to use this data in your own projects provided that appropriate credits are mentioned wherever applicable\" — and the credit is now carried on the data file itself, in the Credits modal and in the footer. The 2026 objection was the absence of attribution and of stated terms; neither is absent now. Note the layer is sparse: 838 of 3,983 sūtras upstream. Complete English coverage comes from the Vasu layers, not this one."
   }
- }
+ },
+ "updated": "2026-09-15"
 }
