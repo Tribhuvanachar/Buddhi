@@ -47,10 +47,20 @@ const appConfig = {
   // breaks search entirely for those users. A SHA ref is immutable and
   // always internally consistent. After each kosha-data build, update
   // this SHA (git ls-remote <data-repo> dist) and bump config.js's ?v=.
-  koshaDataBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/buddhi-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas",
+  // 15 Sep 2026: was a jsDelivr pin to a separate kosha-data repo, which
+  // returns 404 — so every lookup answered "No headword found" while 63 MB of
+  // the same dictionaries sat unread in data/kosha/ in this very repository.
+  // js/kosha.js already defaults to that path; the override was the only thing
+  // pointing it elsewhere. Set this back to a CDN only when the corpus really
+  // outgrows Pages, and check the URL resolves before you do.
+  koshaDataBase: "data/kosha",
   // The enriched render tree (koshas_r) that kosha2.html displays —
   // built by the same Action from tools/kosha_enrich.py; same SHA.
-  koshaRenderBase: "https://cdn.jsdelivr.net/gh/Tribhuvanachar/buddhi-kosha-data@54072a8d40d4907df588d722b3796afe06ec2568/data/koshas_r",
+  // The enriched render tree has no local build, so this stays empty rather
+  // than pointing at the same dead pin. kosha2.html already degrades honestly
+  // when it is absent ("Browse needs the enriched index"), and search — which
+  // is what a reader actually reaches for — does not depend on it.
+  koshaRenderBase: "",
   // The Sanskrit WordNet lookup tree that js/intellisense.js reads for the
   // अर्थः section of the word popover, built by tools/build_wordnet.py and
   // published to this repo's own "wordnet-dist" branch — data only, no
