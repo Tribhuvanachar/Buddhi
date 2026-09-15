@@ -14,6 +14,20 @@ window.DGE_VERSIONS['render.js'] = 'v5.0 (बन्नञ्जे-पाठः:
 // text has none already, and only when every syllable aligns with the
 // source -- any doubt and the text is returned untouched.
 const _dgePadaCache = new Map();
+// Body text goes to innerHTML, and the corpus deliberately carries markup in
+// it -- span/div/br/b/em put there by importers. So it cannot simply be
+// escaped; it is passed through dge-sanitize.js, which keeps those tags and
+// escapes everything else, so a stray '<' typed by a content editor survives
+// to the page instead of taking the rest of the line with it.
+//
+// Falls through unchanged if the module is not loaded, which is exactly the
+// behaviour of every build before it existed -- a missing script must not
+// blank the text.
+function dgeSanitizeBody(s, markup) {
+  return (typeof DGESanitize !== 'undefined' && DGESanitize && DGESanitize.render)
+    ? DGESanitize.render(s, markup) : s;
+}
+
 function dgePadaBreak(sa) {
   if (typeof sa !== 'string' || !sa || !(window.DGEChandas && window.DGEChandas.ready && window.DGEChandas.ready())) return sa;
   if (_dgePadaCache.has(sa)) return _dgePadaCache.get(sa);
@@ -684,7 +698,7 @@ function renderList() {
             const aiBadge = (typeof dgeIsAiGeneratedCommentaryKey === 'function' && dgeIsAiGeneratedCommentaryKey(cKey))
               ? '<span class="dge-ai-badge" title="AI-generated -- not author-verified">AI</span>' : '';
             blocks.push({ cKey, name: convertedName,
-              html: `<div class="commentary-block" data-ckey="${cKey}"><div class="commentary-title">${convertedName}${aiBadge}</div>${dgeWrapWordsForTap(highlightText(convertedText, pattern))}</div>` });
+              html: `<div class="commentary-block" data-ckey="${cKey}"><div class="commentary-title">${convertedName}${aiBadge}</div>${dgeWrapWordsForTap(highlightText(dgeSanitizeBody(convertedText, shloka.markup), pattern))}</div>` });
           }
         }
       });
@@ -827,7 +841,9 @@ function renderList() {
       footnoteResult = window.DGEFootnotes.render(shloka.geminiEnrichment);
     }
 
-    let mulaHtml = highlightText(footnoteResult ? footnoteResult.html : mulaDisplayText, pattern);
+    // footnoteResult.html is HTML this project generated itself; only the
+    // corpus-derived branch needs sanitising.
+    let mulaHtml = highlightText(footnoteResult ? footnoteResult.html : dgeSanitizeBody(mulaDisplayText, shloka.markup), pattern);
     if (shloka.vedicId) {
       mulaHtml = mulaHtml.replace(/\s*\/\s*/g, '<br>');
     }
